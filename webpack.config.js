@@ -18,8 +18,8 @@ module.exports = {
                 test: /\.scss/,
                 use: [
                     'style-loader',
-                    'sass-loader',
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ],
                 exclude: /node_modules/
             }
