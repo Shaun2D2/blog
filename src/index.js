@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from './pages/home';
+import Home from './react/pages/home';
 
 import './styles.scss';
 

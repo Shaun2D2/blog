@@ -1,0 +1,22 @@
+.blog-card {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 250px !important;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    transition: box-shadow .5s ease;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 3px 3px 3px #ccc;
+    }
+}
+
+.blog-card__title {
+    font-weight: 200;
+}
+
+.blog-card__summary {
+    font-weight: 100;
+    font-size: 25px;
+}
