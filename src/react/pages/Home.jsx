@@ -9,27 +9,27 @@ import Card from '../components/Card';
 const DATA = [
     {
         title: 'Latest',
-        image: '',
+        image: 'http://lorempixel.com/output/city-q-c-350-250-8.jpg',
         summary: 'coolest thing about stuff'
     },
     {
         title: 'About',
-        image: '',
+        image: 'http://lorempixel.com/output/city-q-c-350-250-8.jpg',
         summary: 'Who is this guy?'
     },
     {
         title: 'React',
-        image: '',
+        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
         summary: 'Epic react stuff'
     },
     {
         title: 'Javascript',
-        image: '',
+        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
         summary: 'Everything javascript related'
     },
     {
         title: 'Redux',
-        image: '',
+        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
         summary: 'Untangle Redux like a boss'
     }
 ]
@@ -51,13 +51,15 @@ class Home extends Component {
             <div className="container">
                 <div className="home">
                     <h1 className="home__title">Deving For Humans</h1>
-                    <p className="home__body">
-                        Nulla pellentesque erat in risus rutrum consectetur. Nullam dictum quis enim vitae mollis. Maecenas ornare ultrices lobortis. Sed est lacus, porttitor ut urna placerat, vehicula porta metus. Sed a orci laoreet, faucibus ex a, varius purus. Integer euismod finibus ligula, a pharetra sapien gravida at. Mauris fringilla elit sit amet enim volutpat suscipit. Maecenas nunc orci, posuere dignissim nulla at, finibus viverra quam. Donec nunc odio, elementum vel elementum eget, semper ut sapien. Morbi sit amet aliquam dolor. Nunc rhoncus, lectus vel ornare pharetra, quam lorem elementum est, id ultrices eros nulla sit amet ante. Donec laoreet, leo quis lobortis pretium, purus est dignissim est, id placerat urna lectus at mauris. Nullam viverra lorem cursus tortor consequat, sed vulputate orci ultrices. Nulla eu imperdiet elit. Pellentesque mattis massa viverra eleifend dignissim. Ut sollicitudin enim in feugiat rutrum.
-                    </p>
+                    <h3 className="home__title-description">
+                        A blog dedicated to making web development accessible for everyone.
+                        <br />
+                        select a topic below to get started.
+                    </h3>
 
                     <div className="row">
                         {DATA.map((item, index) => (
-                            <div className="col-sm-4" key={`card-${index}`}>
+                            <div className="col-sm-3" key={`card-${index}`}>
                                 <Card {...item} />
                             </div>
                         ))}
