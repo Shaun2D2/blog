@@ -5,6 +5,8 @@ import PrismicDOM from 'prismic-dom';
 import './Home.scss';
 
 import Card from '../components/Card';
+import { BASE_URL } from '../../config/api';
+
 
 const DATA = [
     {
@@ -51,6 +53,15 @@ class Home extends Component {
         this.state = {
             loading: true
         }
+    }
+
+    async componentDidMount() {
+
+        const api = await Prismic.getApi(BASE_URL);
+
+        const response = await api.query(Prismic.Predicates.at('document.type', 'topic'));
+
+        console.log(response.results.map(topic => topic.data.title));
     }
 
     render() {

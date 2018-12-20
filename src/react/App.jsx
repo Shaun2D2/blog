@@ -1,11 +1,13 @@
 import React from 'react';
 import { Router, Route, Link } from "react-router-dom";
+import { Provider } from 'react-redux';
 
 import { faGlasses, faDatabase, faBullhorn, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { fab, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import history from './utils/history';
+import store from '../redux/store';
 
 import Footer from './components/Footer';
 import Topic from './pages/Topic';
@@ -27,15 +29,17 @@ library.add(
 );
 
 const App = () => (
-    <Router history={history}>
-        <div>
-            <Route path="/" exact component={Home} />
-            <Route path="/post/:id" component={Post} />
-            <Route path="/topic/:id" component={Topic} />
-            <Route path="/about" component={About} />
-            <Footer />
-        </div>
-    </Router>
+    <Provider store={store}>
+        <Router history={history}>
+            <div>
+                <Route path="/" exact component={Home} />
+                <Route path="/post/:id" component={Post} />
+                <Route path="/topic/:id" component={Topic} />
+                <Route path="/about" component={About} />
+                <Footer />
+            </div>
+        </Router>
+    </Provider>
 );
 
 export default App;
