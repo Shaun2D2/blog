@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from './react/pages/home';
+import App from './react/App';
 
 import './styles.scss';
 
-ReactDOM.render(<Home />, document.getElementsByTagName('body')[0]);
+ReactDOM.render(<App />, document.getElementsByTagName('body')[0]);

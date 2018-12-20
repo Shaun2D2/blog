@@ -9,28 +9,33 @@ import Card from '../components/Card';
 const DATA = [
     {
         title: 'Latest',
-        image: 'http://lorempixel.com/output/city-q-c-350-250-8.jpg',
-        summary: 'coolest thing about stuff'
+        summary: 'Latest post',
+        icon: 'bullhorn',
+        color: '#FEFCFB'
     },
     {
         title: 'About',
-        image: 'http://lorempixel.com/output/city-q-c-350-250-8.jpg',
-        summary: 'Who is this guy?'
+        summary: 'Who am I',
+        icon: 'glasses',
+        color: '#FEFCFB'
     },
     {
         title: 'React',
-        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
-        summary: 'Epic react stuff'
+        summary: 'Epic React stuff',
+        icon: ['fab', 'react'],
+        color: '#FEFCFB'
     },
     {
         title: 'Javascript',
-        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
-        summary: 'Everything javascript related'
+        summary: 'Everything javascript',
+        icon: ['fab', 'js-square'],
+        color: '#FEFCFB'
     },
     {
         title: 'Redux',
-        image: 'http://lorempixel.com/output/city-q-c-350-250-2.jpg',
-        summary: 'Untangle Redux like a boss'
+        summary: 'Redux like a boss',
+        icon: 'database',
+        color: '#FEFCFB'
     }
 ]
 
@@ -59,7 +64,7 @@ class Home extends Component {
 
                     <div className="row">
                         {DATA.map((item, index) => (
-                            <div className="col-sm-3" key={`card-${index}`}>
+                            <div className="col-lg-3 col-md-4 col-sm-6" key={`card-${index}`}>
                                 <Card {...item} />
                             </div>
                         ))}
