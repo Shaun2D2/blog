@@ -11,31 +11,35 @@ const DATA = [
         title: 'Latest',
         summary: 'Latest post',
         icon: 'bullhorn',
-        color: '#FEFCFB'
+        color: '#FEFCFB',
     },
     {
         title: 'About',
         summary: 'Who am I',
         icon: 'glasses',
-        color: '#FEFCFB'
+        color: '#FEFCFB',
+        path: '/about'
     },
     {
         title: 'React',
         summary: 'Epic React stuff',
         icon: ['fab', 'react'],
-        color: '#FEFCFB'
+        color: '#FEFCFB',
+        path: '/topic/1'
     },
     {
         title: 'Javascript',
         summary: 'Everything javascript',
         icon: ['fab', 'js-square'],
-        color: '#FEFCFB'
+        color: '#FEFCFB',
+        path: '/topic/2'
     },
     {
         title: 'Redux',
         summary: 'Redux like a boss',
         icon: 'database',
-        color: '#FEFCFB'
+        color: '#FEFCFB',
+        path: '/topic/3'
     }
 ]
 
@@ -59,7 +63,7 @@ class Home extends Component {
                     <h3 className="home__title-description">
                         A blog dedicated to making web development accessible for everyone.
                         <br />
-                        select a topic below to get started.
+                        Select a topic below to get started.
                     </h3>
 
                     <div className="row">

@@ -1,9 +1,17 @@
 import React from 'react';
-import Home from './pages/Home';
+import { Router, Route, Link } from "react-router-dom";
 
-import { faGlasses, faDatabase, faBullhorn } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGlasses, faDatabase, faBullhorn, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { fab, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import history from './utils/history';
+
+import Footer from './components/Footer';
+import Topic from './pages/Topic';
+import About from './pages/About';
+import Home from './pages/Home';
+import Post from './pages/Post';
 
 /**
  * lets add in font-awesome icons.
@@ -15,10 +23,19 @@ library.add(
     faGlasses, 
     faDatabase,
     faBullhorn,
+    faHeart,
 );
 
 const App = () => (
-    <Home />
+    <Router history={history}>
+        <div>
+            <Route path="/" exact component={Home} />
+            <Route path="/post/:id" component={Post} />
+            <Route path="/topic/:id" component={Topic} />
+            <Route path="/about" component={About} />
+            <Footer />
+        </div>
+    </Router>
 );
 
 export default App;
