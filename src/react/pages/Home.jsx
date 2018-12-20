@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Prismic from 'prismic-javascript';
-import PrismicDOM from 'prismic-dom';
+import { connect } from 'react-redux';
+// import PrismicDOM from 'prismic-dom';
+
+import { fetchTopics } from '../../redux/modules/topics';
 
 import './Home.scss';
 
@@ -56,12 +58,7 @@ class Home extends Component {
     }
 
     async componentDidMount() {
-
-        const api = await Prismic.getApi(BASE_URL);
-
-        const response = await api.query(Prismic.Predicates.at('document.type', 'topic'));
-
-        console.log(response.results.map(topic => topic.data.title));
+        await this.props.getTopics();
     }
 
     render() {
@@ -90,4 +87,11 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+    getTopics: () => dispatch(fetchTopics())
+})
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Home);
