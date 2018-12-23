@@ -5,6 +5,16 @@ import api from '../../react/utils/api';
 
 const initialState = List([]);
 
+const processIcon = (icon) => {
+    const parsedIcon = icon.split(', ');
+
+    if(parsedIcon.length > 1) {
+        return parsedIcon;
+    }
+
+    return parsedIcon[0];
+}
+
 const ADD_TOPIC = 'ADD_TOPIC';
 const ADD_COLLECTION = 'ADD_COLLECTION';
 
@@ -18,13 +28,13 @@ export const fetchTopics = () => (
         try {
             const client = await api();
             const response = await client.query(Prismic.Predicates.at('document.type', 'topic'));
-    
-            const topics = response.results.map(item => ({ id: item.id, ...item.data }));
+            const topics = response.results.map(item => ({ ...item.data, id: item.id, icon: processIcon(item.data.icon) }));
     
             dispatch(addTopics(topics));
     
             return Promise.resolve();
         } catch(e) {
+            console.log(e);
             return Promise.reject();
         }
     }

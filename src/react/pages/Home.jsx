@@ -1,51 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import PrismicDOM from 'prismic-dom';
 
-import { fetchTopics } from '../../redux/modules/topics';
+import PRESET_CARDS from '../../config/cards';
+import Card from '../components/Card';
 
 import './Home.scss';
-
-import Card from '../components/Card';
-import { BASE_URL } from '../../config/api';
-
-
-const DATA = [
-    {
-        title: 'Latest',
-        summary: 'Latest post',
-        icon: 'bullhorn',
-        color: '#FEFCFB',
-    },
-    {
-        title: 'About',
-        summary: 'Who am I',
-        icon: 'glasses',
-        color: '#FEFCFB',
-        path: '/about'
-    },
-    {
-        title: 'React',
-        summary: 'Epic React stuff',
-        icon: ['fab', 'react'],
-        color: '#FEFCFB',
-        path: '/topic/1'
-    },
-    {
-        title: 'Javascript',
-        summary: 'Everything javascript',
-        icon: ['fab', 'js-square'],
-        color: '#FEFCFB',
-        path: '/topic/2'
-    },
-    {
-        title: 'Redux',
-        summary: 'Redux like a boss',
-        icon: 'database',
-        color: '#FEFCFB',
-        path: '/topic/3'
-    }
-]
 
 class Home extends Component {
 
@@ -53,16 +12,19 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            loading: true
+            loading: true,
+            cards: PRESET_CARDS
         }
     }
 
-    async componentDidMount() {
-        await this.props.getTopics();
+    componentDidMount() {
+        const { topics } = this.props;
+
+        this.setState({ cards: [ ...this.state.cards, ...topics ] });
     }
 
     render() {
-        const { loading, data } = this.state;
+        const { cards } = this.state;
 
         return (
             <div className="container">
@@ -75,7 +37,7 @@ class Home extends Component {
                     </h3>
 
                     <div className="row">
-                        {DATA.map((item, index) => (
+                        {cards.map((item, index) => (
                             <div className="col-lg-3 col-md-4 col-sm-6" key={`card-${index}`}>
                                 <Card {...item} />
                             </div>
@@ -87,11 +49,10 @@ class Home extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    getTopics: () => dispatch(fetchTopics())
-})
+const mapStateToProps = state => ({
+    topics: state.get('topics'),
+});
 
 export default connect(
-    null,
-    mapDispatchToProps
+    mapStateToProps,
 )(Home);
