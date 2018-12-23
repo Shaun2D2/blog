@@ -15,12 +15,18 @@ const addTopics = (topics) => ({
 
 export const fetchTopics = () => (
     async (dispatch) => {
-        const client = await api();
-        const response = await client.query(Prismic.Predicates.at('document.type', 'topic'));
-
-        const topics = response.results.map(item => ({ id: item.id, ...item.data }));
-
-        dispatch(addTopics(topics));
+        try {
+            const client = await api();
+            const response = await client.query(Prismic.Predicates.at('document.type', 'topic'));
+    
+            const topics = response.results.map(item => ({ id: item.id, ...item.data }));
+    
+            dispatch(addTopics(topics));
+    
+            return Promise.resolve();
+        } catch(e) {
+            return Promise.reject();
+        }
     }
 )
 
