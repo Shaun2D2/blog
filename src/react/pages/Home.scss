@@ -13,4 +13,20 @@
     font-weight: 200;
     line-height: 2;
     margin-bottom: 100px;
+    @media(max-width: 425px) {
+        margin-bottom: 25px;
+    }
+}
+
+.home__desktop-card-grid {
+    @media(max-width: 425px) {
+        display: none;
+    }
+}
+
+.home__mobile-card-grid {
+    display: none;
+    @media(max-width: 425px) {
+        display: block;
+    }
 }
