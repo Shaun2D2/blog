@@ -67,7 +67,7 @@ class App extends Component {
 
         return (
         <Router history={history}>
-            <div>
+            <div className="animated fadeIn">
                 <Route path="/" exact component={Home} />
                 <Route path="/post/:id" component={Post} />
                 <Route path="/topic/:id" component={Topic} />
