@@ -39,7 +39,7 @@ class Home extends Component {
         return (
             <div className="container">
                 <div className="home">
-                    <h1 className="home__title">Deving For Humans</h1>
+                    <h1 className="home__title">Deving For <strong>Hu</strong>mans</h1>
                     <h3 className="home__title-description">
                         A blog dedicated to making web development accessible for everyone.
                         <br />

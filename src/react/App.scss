@@ -1,0 +1,17 @@
+.application-enter {
+    opacity: 0.01;
+}
+  
+.application-enter.application-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+  
+.application-leave {
+    opacity: 1;
+}
+  
+.application-leave.application-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
